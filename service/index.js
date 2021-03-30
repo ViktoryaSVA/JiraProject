@@ -44,24 +44,34 @@ fetch('https://testsva.atlassian.net/rest/api/3/search', {
             let Fields = newText.issues;
             for (const itemFields of Fields) {
                 //console.log(itemFields.fields);
-
                 let Assignee = itemFields.fields.assignee;
+                let Status = itemFields.fields.status.name;
+                let Summary = itemFields.fields.summary;
+                let AssigneeData = Assignee.displayName
                 //console.log(Assignee);
 
-                // mysqlClient.User.create({
-                //     assignee: Assignee.displayName
-                // }).then(res => {
-                //     console.log(res);
-                // }).catch(err => console.log(err));
-
-                // mysqlClient.Task.create({
-                //     status: itemFields.fields.status.name,
-                //     summary: itemFields.fields.summary
-                // }).then(res => {
-                //     console.log(res);
-                // }).catch(err => console.log(err));
-
+                // Start function for adding data
+                //AddToDB(AssigneeData, Status, Summary)
             };
         })
     .catch(err => console.error(err));
 
+function AddToDB(AssigneeData, Status, Summary) {
+    //Add Data to User
+
+    mysqlClient.User.create({
+        assignee: AssigneeData
+    }).then(res => {
+        console.log(res);
+    }).catch(err => console.log(err));
+
+    //Add Data to Task
+
+    mysqlClient.Task.create({
+        status: Status,
+        summary: Summary
+    }).then(res => {
+        console.log(res);
+    }).catch(err => console.log(err));
+
+}

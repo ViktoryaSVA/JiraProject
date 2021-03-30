@@ -1,7 +1,21 @@
-<div id="main-table-panel" style="overflow-x: auto; height: inherit">
-    <h3>Everything is successfully installed. You can start developing 😉</h3>
-</div>
+<!DOCTYPE html>
+<html>
+<head>
 
+    <title>Список пользователей</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+<h1>Список пользователей</h1>
+<table>
+    <tr><th>Assignee</th><th>Status</th><th></th></tr>
+    {{#each task}}
+        <tr>
+            <td>{{id}}</td>
+            <td>{{status}}</td>
 
-
-
+        </tr>
+    {{/each}}
+</table>
+</body>
+<html>
