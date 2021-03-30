@@ -33,7 +33,7 @@ module.exports = function (app, addon) {
     });
 
 
-    app.get('/main-page', addon.authenticate(), async function (req, res) {
+    app.get('/main-page', async function (req, res) {
         // pool.query("SELECT * FROM mysqlClient.users", function (err, data) {
         //     if(err) return console.log(err);
         //     res.render("main-page", {
