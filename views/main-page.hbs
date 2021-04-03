@@ -2,20 +2,27 @@
 <html>
 <head>
 
-    <title>Список пользователей</title>
+    <title>{{title}}</title>
     <meta charset="utf-8" />
 </head>
 <body>
-<h1>Список пользователей</h1>
+<h2>Select issues by filter: </h2>
 <table>
-    <tr><th>Assignee</th><th>Status</th><th></th></tr>
-    {{#each task}}
-        <tr>
-            <td>{{id}}</td>
-            <td>{{status}}</td>
+    <tr><th>Assignee</th><th> Status1 </th><th> Status2 </th><th> Status3 </th><th> Status4 </th></tr>
+    {{#each result}}
+        <tr><th>{{name}} : </th>
 
+        {{#each this.count}}
+
+        <th>{{count}}  </th>
+
+        {{/each}}
         </tr>
     {{/each}}
+        </tr>
+
+
+
 </table>
 </body>
 <html>

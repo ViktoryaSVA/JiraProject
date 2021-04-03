@@ -32,12 +32,16 @@ module.exports = function (app, addon) {
         });
     });
 
-
     app.get('/main-page', async function (req, res) {
-        require("../service/getData");
-        res.render("main-page");
-    });
+        let {GetData} = require("../service/getData");
+        let result = await GetData();
+        console.log(result)
+        res.render("main-page", {
+            title: "Main page",
+            result:result
 
+        });
+    });
     app.post('/main-page', addon.checkValidToken(), async function (req, res) {
     });
 

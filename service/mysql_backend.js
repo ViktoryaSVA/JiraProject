@@ -8,12 +8,6 @@ const sequelize = new Sequelize("jiraDB","root","SVAroot16",{
 
     }
 });
-const ShowData = sequelize.query("SELECT * FROM users", function (rows) {
-   console.log(JSON.stringify(rows));
-})
-
-console.log(ShowData) ;
-
 
 const User = sequelize.define("users",{
     id: {
@@ -23,6 +17,22 @@ const User = sequelize.define("users",{
         allowNull: false
     },
     assignee: {
+        type: Sequelize.STRING,
+        allowNull: false,
+    },
+    assigneeID: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+    },
+    summary: {
+        type: Sequelize.STRING,
+        allowNull: false,
+    },
+    summaryID: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+    },
+    summaryStatus: {
         type: Sequelize.STRING,
         allowNull: false,
     }
