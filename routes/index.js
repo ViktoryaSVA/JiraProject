@@ -1,5 +1,4 @@
 const fs = require("fs");
-const mysqlClient = require("../service/mysql_backend");
 
 module.exports = function (app, addon) {
 
@@ -35,12 +34,20 @@ module.exports = function (app, addon) {
     app.get('/main-page', async function (req, res) {
         let {GetData} = require("../service/getData");
         let result = await GetData();
-        console.log(result)
+        // console.log(result)
         res.render("main-page", {
             title: "Main page",
             result:result
 
         });
+    });
+    app.get('/getBoard/:board', async function (req, res) {
+        let {getBoard} = require("../service/index");
+        let board = req.params.board;
+        getBoard(board)
+
+        // console.log(board)
+        res.redirect('/main-page')
     });
     app.post('/main-page', addon.checkValidToken(), async function (req, res) {
     });

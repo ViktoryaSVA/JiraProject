@@ -8,7 +8,6 @@ const sequelize = new Sequelize("jiraDB","root","SVAroot16",{
 
     }
 });
-
 const User = sequelize.define("users",{
     id: {
         type: Sequelize.INTEGER,
@@ -35,27 +34,17 @@ const User = sequelize.define("users",{
     summaryStatus: {
         type: Sequelize.STRING,
         allowNull: false,
-    }
-});
-
-const Task = sequelize.define("task",{
-    id: {
-        type: Sequelize.INTEGER,
-        autoIncrement: true,
-        primaryKey: true,
-        allowNull: false
     },
-    status: {
-        type: Sequelize.INTEGER,
+    boardName: {
+        type: Sequelize.STRING,
         allowNull: false,
     },
-
-    summary: {
+    boardID: {
         type: Sequelize.STRING,
         allowNull: false,
     }
 });
+
 module.exports = {
-    User,
-    Task
+    User
 }

@@ -1,21 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <title>{{title}}</title>
     <meta charset="utf-8" />
 </head>
 <body>
-<h2>Select issues by filter: </h2>
+<div class="row">
+
+    <div class="col-md-2">
+        <h2>Select by issue</h2>
+    </div>
+
+    <div class="col-md-8">
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            default filter
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="/getBoard/SVAP">SVAP</a>
+            <a class="dropdown-item" href="/getBoard/SKPA">SKPA</a>
+            <a class="dropdown-item" href="/getBoard/SKP">SKP</a>
+        </div>
+    </div>
+    </div>
+</div>
+
 <table>
     <tr><th>Assignee</th><th> Status1 </th><th> Status2 </th><th> Status3 </th><th> Status4 </th></tr>
     {{#each result}}
         <tr><th>{{name}} : </th>
 
         {{#each this.count}}
+            {{#ifCond count "<" 1}}
+                <th>0 </th>
 
-        <th>{{count}}  </th>
+            {{else }}
+                <th>{{count}}  </th>
 
+
+            {{/ifCond}}
         {{/each}}
         </tr>
     {{/each}}
