@@ -79,7 +79,8 @@ function AddToDB(AssigneeData,AssigneeID, Status, Summary,StatusID,key,BoardId )
         summaryID: StatusID,
         summaryStatus: Status,
         boardName:key ,
-        boardID:BoardId
+        boardID:BoardId,
+        created_at: new Date().getTime()
     }).then(res => {
         console.log(res);
     }).catch(err => console.log(err));

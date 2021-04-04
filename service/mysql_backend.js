@@ -46,6 +46,11 @@ const User = sequelize.define("users",{
     boardID: {
         type: Sequelize.STRING,
         allowNull: false,
+    },
+    created_at: {
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.NOW,
+        allowNull: false,
     }
 });
 
