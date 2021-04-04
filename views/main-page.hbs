@@ -35,14 +35,7 @@
         <tr><th>{{name}} : </th>
 
         {{#each this.count}}
-            {{#ifCond count "<" 1}}
-                <th>0 </th>
-
-            {{else }}
-                <th>{{count}}  </th>
-
-
-            {{/ifCond}}
+                <th>{{count}}</th>
         {{/each}}
         </tr>
     {{/each}}

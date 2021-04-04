@@ -55,33 +55,7 @@ async function getdb() {
 // We use [Handlebars](http://handlebarsjs.com/) as our view engine
 // via [express-hbs](https://npmjs.org/package/express-hbs)
     var hbs = require('hbs');
-    hbs.registerHelper('ifCond', function (v1, operator, v2, options) {
 
-        switch (operator) {
-            case '==':
-                return (v1 == v2) ? options.fn(this) : options.inverse(this);
-            case '===':
-                return (v1 === v2) ? options.fn(this) : options.inverse(this);
-            case '!=':
-                return (v1 != v2) ? options.fn(this) : options.inverse(this);
-            case '!==':
-                return (v1 !== v2) ? options.fn(this) : options.inverse(this);
-            case '<':
-                return (v1 < v2) ? options.fn(this) : options.inverse(this);
-            case '<=':
-                return (v1 <= v2) ? options.fn(this) : options.inverse(this);
-            case '>':
-                return (v1 > v2) ? options.fn(this) : options.inverse(this);
-            case '>=':
-                return (v1 >= v2) ? options.fn(this) : options.inverse(this);
-            case '&&':
-                return (v1 && v2) ? options.fn(this) : options.inverse(this);
-            case '||':
-                return (v1 || v2) ? options.fn(this) : options.inverse(this);
-            default:
-                return options.inverse(this);
-        }
-    });
 // We also need a few stock Node modules
     var http = require('http');
     var path = require('path');
