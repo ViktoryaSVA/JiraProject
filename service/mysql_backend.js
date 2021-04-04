@@ -1,5 +1,9 @@
+const argv = require('optimist').argv;
+const db = argv.db;
+const userDB = argv.userDB;
+const passwordDB = argv.passwordDB;
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize("jiraDB","root","SVAroot16",{
+const sequelize = new Sequelize(db,userDB,passwordDB,{
     dialect: "mysql",
     host: "localhost",
     define: {

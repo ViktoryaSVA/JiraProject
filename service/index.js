@@ -86,27 +86,3 @@ function AddToDB(AssigneeData,AssigneeID, Status, Summary,StatusID,key,BoardId )
 
 
 }
-
-
-// For filter
-// fetch('https://testsva.atlassian.net/rest/api/3/filter/my', {
-//     method: 'GET',
-//     headers: {
-//         'Authorization': `Basic ${Buffer.from(
-//             `${login}:${password}`
-//         ).toString('base64')}`,
-//         'Accept': 'application/json',
-//         'Content-Type': 'application/json'
-//     }
-// })
-//     .then(response => {
-//         console.log(
-//             `Response: ${response.status} ${response.statusText}`
-//         );
-//         return response.text();
-//     })
-//     .then(text => {
-//         let ghj = JSON.parse(text);
-//         console.log(ghj)
-//     })
-//     .catch(err => console.error(err));
